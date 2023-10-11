@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/4fc7921bf9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+</head>
+<body>
+    <div class="note-head">
+        <h1>Add a Note</h1>
+        <div class="form-control">
+            <form action="/" method="POST">
+                <div class="input">
+                    <input class="form-input" type="text" name="title" placeholder="Enter Title">
+
+
+                    <input type="text" class="form-text form-input" name="note" >
+               </div>
+               <div class="btn">
+                    <button type="submit"><i class="fa-solid fa-circle-plus fa-2xl"></i></button>
+               </div>
+            </form>
+        </div>
+        <div class="note">
+            {%for n in allnote%}
+            <div class="note-box">
+                <h2>{{n.title}}</h2>
+                <p>{{n.note}}</p>
+            </div>
+             {%endfor%}
+        </div>
+    </div>
+</body>
+</html>
